@@ -1,0 +1,19 @@
+This project has a lot of experimental features, so all commits are labeled
+according to a system similar to the one used by numpy and scipy. The
+following labels are used:
+
+BUG: bug fix
+DEV: development or experimental feature
+DOC: documentation-only commit
+DATA: added or updated data files (templates, configurations, etc.)
+ENH: enhancement
+MAINT: maintenance commit (refactoring, typos, etc.)
+REV: revert an earlier commit
+STY: style fix (whitespace, PEP8)
+TST: addition or modification of tests
+
+Commits that are labeled DEV or have no label should not be merged into the
+master branch. They should be cherry-picked or rebased out during rebases
+or merges.
+
+Other categories will be added as necessary as the project gains complexity.
