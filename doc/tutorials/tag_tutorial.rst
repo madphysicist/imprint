@@ -66,12 +66,12 @@ Making Your Tag Built-In
 ------------------------
 
 If you end up writing a tag that you believe is generic and useful enough to be
-built-in, feel free to submit a `pull-request`_ or patch to the author. Be sure
+built-in, feel free to submit a `pull request`_ or patch to the author. Be sure
 to include all, or at least most, of the following items:
 
   - A properly documented implementation of your tag in the
     :py:mod:`imprint.core.tags` module.
-  - A proper entry in :doc:`reference/xml_spec`.
+  - A proper entry in :doc:`/reference/xml_spec`.
   - At least a brief mention of your tag in at least one of the tutorials.
   - Proper tests, once that becomes a thing.
 

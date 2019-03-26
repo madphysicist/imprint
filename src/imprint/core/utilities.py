@@ -22,10 +22,11 @@
 
 
 """
-A module containing general utilities used by the docx tools.
+:py:mod:`imprint.core.utilities` containins general utilities to help
+the engine create and process docx files.
 
-The configuration loaders in this module are suitable for inclusion in
-the `haggis`_ library.
+The configuration loaders in this module are potentially suitable for
+inclusion in the `haggis`_ library.
 
 
 .. include:: /link-defs.rst
@@ -80,7 +81,7 @@ def trigger_fail_state(fail, msg,
 
       - ``'ignore'``: Do nothing
       - ``'warn'``: Raise a warning with message `msg` and class
-        `warn_class` (:py:warn:`UserWarning` by default).
+        `warn_class` (:py:exc:`UserWarning` by default).
       - ``'raise'``: Raise an error with message `msg` and class
         `error_class` (:py:exc:`ValueError` by default).
 

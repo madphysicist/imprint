@@ -22,6 +22,7 @@
 .. _DVI: https://web.archive.org/web/20070403030353/http://www.math.umd.edu/~asnowden/comp-cont/dvi.html
 .. _dvips: https://www.tug.org/texinfohtml/dvips.html
 .. _GhostScript: https://www.ghostscript.com/
+.. _GitHub: https://github.com/madphysicist/imprint
 .. _haggis: https://haggis.readthedocs.io/en/latest
 .. _ImageMagick: https://www.imagemagick.org/script/index.php
 .. _LaTeX: https://www.latex-project.org/
@@ -34,7 +35,7 @@
 .. _pillow: https://pillow.readthedocs.io/en/5.1.x/
 .. _Poppler: https://poppler.freedesktop.org/
 .. _PostScript: https://www.tinaja.com/post01.shtml
-.. _pypi: https://pypi.org/
+.. _PyPI: https://pypi.org/project/imprint/
 .. _python-docx: https://python-docx.readthedocs.io/en/latest/index.html
 .. _python-pptx: https://python-pptx.readthedocs.io/en/latest/index.html
 .. _ReadTheDocs Theme: http://sphinx-rtd-theme.readthedocs.io/en/latest/
@@ -43,7 +44,6 @@
 .. _sphinx: http://www.sphinx-doc.org/en/latest/
 
 
-.. _code: https://github.com/madphysicist/imprint
 .. _docs: https://imprint.readthedocs.io/en/latest
 .. _issues: https://github.com/madphysicist/imprint/issues
-.. _pull-request: https://github.com/madphysicist/imprint/pulls
+.. _pull request: https://github.com/madphysicist/imprint/pulls

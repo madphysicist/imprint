@@ -22,22 +22,16 @@
 
 
 """
-Common utilities for handlers.
+:py:mod:`imprint.handlers.utilities` contains common utilities for
+handlers. Users wishing to write their own handlers may want to use
+these functions to facilitate a uniform interface. Existing handlers in
+this package use these functions as well.
 """
 
 from collections.abc import Mapping
 
 
-__all__ = ['get_file', 'get_key', 'normalize_descriptor']
-
-
-def get_file(config, kwds, key='file', default=None,
-             formatted='formatted', missing_ok=False):
-    """
-    A wrapper around :py:func:`get_key` that sets the default key to
-    ``'file'`` and forbids missing keys.
-    """
-    return get_key(config, kwds, key, default, formatted, missing_ok)
+__all__ = ['get_key', 'get_file', 'normalize_descriptor']
 
 
 def get_key(config, kwds, key, default=None,
@@ -72,9 +66,8 @@ def get_key(config, kwds, key, default=None,
 
     Return
     ------
-    value :
-        The value in `config` associated with ``key``, optionally
-        formatted with `kwds`.
+    The value in `config` associated with `key`, optionally formatted
+    with `kwds`.
     """
     if missing_ok:
         value = config.get(key, default)
@@ -83,6 +76,15 @@ def get_key(config, kwds, key, default=None,
     if isinstance(value, str) and config.get(formatted, True):
         value = value.format(**kwds)
     return value
+
+
+def get_file(config, kwds, key='file', default=None,
+             formatted='formatted', missing_ok=False):
+    """
+    A wrapper around :py:func:`get_key` that sets the default key to
+    ``'file'`` and forbids missing keys.
+    """
+    return get_key(config, kwds, key, default, formatted, missing_ok)
 
 
 def normalize_descriptor(descriptor, key, copy=False):

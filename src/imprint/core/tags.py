@@ -22,9 +22,9 @@
 
 
 """
-This module implments the base :ref:`tag-api`, as well as the
-implementations of all the predefined :ref:`tag-api-builtins` and
-:ref:`tag-api-refs`.
+The :py:mod:`imprint.core.tags` module implments the base
+:ref:`tag-api`, as well as the all the predefined
+:ref:`tag-api-builtins` and :ref:`tag-api-refs`.
 """
 
 from collections.abc import Mapping
@@ -185,17 +185,18 @@ class _TagRegistry(dict):
 #: :py:class:`dict` are allowed (including things like
 #: :py:meth:`~dict.update`).
 #:
-#: A convenience property, :py:attr:`~_TagRegistry.referable_tags` is
-#: available to compute a list of all the keys that have
-#: non-\ :py:obj:`None` :py:attr:`~TagDescriptor.reference` attributes
-#: in their values.
-#:
 #: Any tag that is :term:`referenceable` by design (has a valid
 #: :py:attr:`~TagDescriptor.reference` attribute) will have the
 #: :py:class:`ReferenceDescriptor`\ 's registration hook invoked after
 #: the tag-proper is registered.
 #:
 #: The built-in tags are registered when the current module is imported.
+#:
+#: .. py:attribute:: referable_tags
+#:
+#:    A convenience property to compute a list of all the keys that have
+#:    a non-\ :py:obj:`None` :py:attr:`~TagDescriptor.reference`
+#:    attribute in their values.
 tag_registry = _TagRegistry()
 
 

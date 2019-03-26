@@ -22,7 +22,12 @@
 
 
 """
-Package containing the Imprint :ref:`introduction-layers-engine`.
+The :py:mod:`imprint.core` package contains the Imprint
+:ref:`introduction-layers-engine`. The :py:mod:`~imprint.core.tags` and
+:py:mod:`~imprint.core.state` modules implement most of the
+functionality useful to end-users through the public :ref:`tag-api`. The
+:py:mod:`~imprint.core.parsers` and :py:mod:`~imprint.core.utilities`
+contain the :ref:`internals`.
 """
 
 __all__ = [

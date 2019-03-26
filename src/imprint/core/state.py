@@ -22,10 +22,10 @@
 
 
 """
-This module supplies the state objects that enable communication within
-the :ref:`introduction-layers-engine` between the engine itself and the
-tags. The state is therefore crucial to the :ref:`tag-api` without being
-completely a part of it.
+The :py:mod:`imprint.core.state` module supplies the state objects that
+enable communication within the :ref:`introduction-layers-engine`
+between the engine itself and the tags. The state is therefore crucial
+to the :ref:`tag-api` without being completely a part of it.
 """
 
 from collections import deque

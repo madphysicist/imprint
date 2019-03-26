@@ -22,8 +22,8 @@
 
 
 """
-Root package for :ref:`plugins-handlers` for inserting strings into a
-document.
+:py:mod:`imprint.handlers.string` is the root package for built-in
+:ref:`plugins-handlers` for inserting strings into a document.
 
 All the handlers in this module are compatible with the
 :ref:`plugin interface <plugins-strings-signature>` used by the

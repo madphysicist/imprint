@@ -55,7 +55,7 @@ implementation of a very distinct part of the :doc:`tag_api`.
 Data Configuration
 ------------------
 
-The data configuration is the first argument to every handler. The data
+The data configuration is the second argument to every handler. The data
 configuration is a mapping set for every plugin in the
 :ref:`configuration-idc`. The name of the configuration dictionary is in the
 :ref:`id attribute <configuration-idc-names>` of the corresponding
@@ -89,10 +89,8 @@ Handlers are named by the ``handler`` attribute of the corresponding
 :ref:`xml-spec-tags-figure`, :ref:`xml-spec-tags-table` or
 :ref:`xml-spec-tags-string` placeholder tag in the :ref:`configuration-xml`.
 The exact class name (including package) is searched for the handler. If not
-found, a prefix of ``imprint.handlers`` is prepended to the nominal package
+found, a prefix of :mod:`imprint.handlers` is prepended to the nominal package
 name.
-
-.. todo:: Make sure ``imprint.handlers`` is really a thing.
 
 The handler can be overridden in the :ref:`plugins-data-configuration`
 dictionary. Normally, all configuration keys are interpreted directly by the
@@ -111,6 +109,9 @@ required.
 -------
 Figures
 -------
+
+Some built-in figure handler examples can be found in
+:mod:`imprint.handlers.figure`.
 
 
 .. _plugins-figures-tag:
@@ -157,6 +158,9 @@ Handler Signature
 Tables
 ------
 
+Some built-in table handler examples can be found in
+:mod:`imprint.handlers.table`.
+
 
 .. _plugins-tables-tag:
 
@@ -200,6 +204,9 @@ Handler Signature
 -------
 Strings
 -------
+
+Some built-in string handler examples can be found in
+:mod:`imprint.handlers.string`.
 
 
 .. _plugins-strings-tag:
@@ -256,6 +263,14 @@ Figures
 .. autofunction:: ImageFile
 
 
+.. _plugins-builtin-figures-mods:
+
+Submodules
+----------
+
+.. automodule:: imprint.handlers.figure.images
+
+
 .. _plugins-builtin-tables:
 
 Tables
@@ -268,6 +283,14 @@ Tables
 .. autofunction:: DataFrame
 
 
+.. _plugins-builtin-tables-mods:
+
+Submodules
+----------
+
+.. automodule:: imprint.handlers.table.tables
+
+
 .. _plugins-builtin-strings:
 
 Strings
@@ -276,3 +299,20 @@ Strings
 .. automodule:: imprint.handlers.string
 
 .. autofunction:: TextFile
+
+
+.. _plugins-builtin-string.strings:
+
+Submodules
+----------
+
+.. automodule:: imprint.handlers.string.strings
+
+
+.. _plugins-builtin-utilities:
+
+Utilities
+=========
+
+.. automodule:: imprint.handlers.utilities
+   :members:

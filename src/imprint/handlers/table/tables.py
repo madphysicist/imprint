@@ -22,11 +22,16 @@
 
 
 """
+:py:mod:`imprint.handlers.table.tables` contains basic built-in
 :ref:`plugins-handlers` for inserting simple tables into a document.
 
 All the handlers in this module are compatible with the
 :ref:`plugin interface <plugins-tables-signature>` used by the
 :ref:`xml-spec-tags-table` tag.
+
+This module contains handlers that are only enabled when some optional
+dependencies are installed. See :py:mod:`imprint.handlers.table` for
+more information.
 """
 
 import logging
@@ -37,8 +42,10 @@ try:
 except ImportError:
     from sys import stderr
     print('It appears that you do not have pandas installed. '
-          'Try one of the following:\n\n    pip install imprint[all]\n\n'
-          'OR\n\npip install pandas', file=stderr)
+          'Try one of the following:\n\n'
+          '    pip install imprint[all]\n\n'
+          'OR\n\n'
+          '    pip install pandas', file=stderr)
     raise
 
 from haggis.files.docx import merge_row

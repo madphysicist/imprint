@@ -73,7 +73,7 @@ this:
 Let us inspect the contents of this file tag-by-tag to understand what is going
 on.
 
-The outermost :ref:`imprint-template <xml-spec-root>` tag is necessary to make
+The outermost :ref:`<imprint-template> <xml-spec-root>` tag is necessary to make
 the XML into a Imprint template.
 
 Document text is arranged into paragraphs, which are surrounded by
@@ -107,8 +107,8 @@ Creating the Configuration
 ==========================
 
 The second file we will create for this example is the
-:ref:`main configuration <configuration-ipc>`. This file will tell the
-:ref:`introduction-layers-engine` what to do, as well as setting up the
+:ref:`program configuration <configuration-ipc>`. This file tells the
+:ref:`introduction-layers-engine` what to do, in addition to setting up the
 :ref:`keywords-user`, like *What*, required by the
 :ref:`template <t_start-template>`. Here is our configuration file:
 

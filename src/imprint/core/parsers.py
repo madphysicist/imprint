@@ -22,17 +22,17 @@
 
 
 """
-The parsers used to process the :ref:`configuration-xml`.
+:py:mod:`imprint.core.parsers` implements the parsers used to process the
+:ref:`configuration-xml`. These parsers make up the heart of the
+:ref:`introduction-layers-engine`.
 
-These parsers make up the :ref:`introduction-layers-engine`.
-
-There are currently two parsers: :py:class:`ReferencePreprocessor` and
+There are currently two parsers: :py:class:`ReferenceProcessor` and
 :py:class:`TemplateProcessor`. Both are instances of
 :py:class:`haggis.files.xml.SAXLoggable`. The former creates a table of
 reference names/titles/locations/numbers that are used by the the latter.
 """
 
-__all__ = ['RootTag', 'ReferenceProcessor', 'TemplateProcessor']
+__all__ = ['ReferenceProcessor', 'TemplateProcessor', 'RootTag']
 
 
 from collections import deque
@@ -49,7 +49,7 @@ from .tags import TagDescriptor, tag_registry
 from .state import ReferenceState, EngineState
 
 
-class _OpenTagError(Exception):
+class OpenTagError(Exception):
     """
     Used as a goto+label marker when processing opening tags.
 
@@ -62,13 +62,16 @@ class _OpenTagError(Exception):
     pass
 
 
-class _TagStackNode:
+class TagStackNode:
     """
     A structure for maintaining information about open tags for
     :py:class:`TemplateProcessor`.
 
     All of the attributes except :py:attr:`warned` are immutable, so
     while tempting, a :py:func:`~collections.namedtuple` can not be used.
+
+    All attributes are passed to the constructor in the same order that
+    they are listed here. Only the first two are required.
 
     .. py:attribute:: name
 
@@ -89,16 +92,22 @@ class _TagStackNode:
 
        The :py:class:`~imprint.core.tags.TagDescriptor` object for this
        tag. This must always be an actual instance of the class, not a
-       delegate object to be wrapped.
+       delegate object to be wrapped. Defaults to :py:obj:`None`.
 
     .. py:attribute:: config
 
        The :ref:`tag-api-configuration-data` dictionary, if the
-       :py:attr:`descriptor` calls for one, :py:obj:`None` otherwise. If
-       the descriptor has a
+       :py:attr:`descriptor` calls for one, :py:obj:`None` otherwise (the
+       default). If the descriptor has a
        :py:attr:`~imprint.core.tags.TagDescriptor.data_config` attribute
        set but this attribute is :py:obj:`None`, then
        :py:attr:`open_error` must be set to :py:obj:`True`.
+
+    .. py:attribute:: open_error
+
+       Lets the closing tag know that a non-fatal error occurred on
+       opening, so the closing tag processor should be ignored. Defaults\
+       to :py:obj:`False`.
 
     .. py:attribute:: warned
 
@@ -106,15 +115,11 @@ class _TagStackNode:
        a tag that has a
        :py:attr:`~imprint.core.tags.TagDescriptor.content` flag set to
        :py:obj:`False` when nested text is found. Otherwise remains
-       :py:obj:`False`.
-
-    .. py:attribute:: open_error
-
-       Lets the closing tag know that a non-fatal error occurred on
-       opening, so the closing tag processor should be ignored.
+       :py:obj:`False`. This attribute can not be set by the user on
+       initialization.
     """
     __slots__ = (
-        'name', 'attr', 'descriptor', 'config', 'warned', 'open_error'
+        'name', 'attr', 'descriptor', 'config', 'open_error', 'warned',
     )
 
     def __init__(self, name, attr, descriptor=None, config=None,
@@ -131,7 +136,7 @@ class _TagStackNode:
         self.open_error = open_error
 
 
-class _TagStack:
+class TagStack:
     """
     A :py:class:`~collections.deque`\ -based stack that does some basic
     structural checking of the XML.
@@ -170,7 +175,7 @@ class _TagStack:
         """
         Push a node onto the stack.
 
-        The node is expected to be a :py:class:`_TagStackNode` object,
+        The node is expected to be a :py:class:`TagStackNode` object,
         but no actual checking is done.
         """
         self.stack.append(node)
@@ -194,7 +199,7 @@ class _TagStack:
         return tag
 
 
-class _DocxParserBase(SAXLoggable):
+class DocxParserBase(SAXLoggable):
     """
     Base class that contains common functionality of the XML parsers
     that make up the Imprint :ref:`introduction-layers-engine`.
@@ -216,7 +221,7 @@ class _DocxParserBase(SAXLoggable):
        referenced as well.
     """
     def __init__(self):
-        self.tag_stack = _TagStack()
+        self.tag_stack = TagStack()
 
     def check_attributes(self, tag, attr, descriptor=None):
         """
@@ -335,13 +340,12 @@ class RootTag(TagDescriptor):
 tag_registry[root_tag] = RootTag()
 
 
-class ReferenceProcessor(_DocxParserBase):
+class ReferenceProcessor(DocxParserBase):
     """
     The SAX parser that is responsible for pre-computing all the relevant
     references found within the XML template.
 
-    Relevant references are any
-    :py:attr:`~imprint.core.tags.TagDescriptor.referrable` tags. This
+    Relevant references are any :term:`referenceable` tags. This
     processor maintains its own reference counter based on the occurence
     of :ref:`xml-spec-tags-figure`, :ref:`xml-spec-tags-table` and other
     tags within :ref:`xml-spec-tags-par` tags with *Heading* styles.
@@ -356,7 +360,7 @@ class ReferenceProcessor(_DocxParserBase):
     def startElement(self, name, attr):
         """
         Check for referencable tags, either through the tag itself or
-        through the :ref:`xml-spec-attibutes-role` attribute.
+        through the :ref:`xml-spec-attributes-role` attribute.
 
         If the tag is referenceable, the
         :py:meth:`~imprint.core.tags.ReferenceDescriptor.start` method of
@@ -364,7 +368,7 @@ class ReferenceProcessor(_DocxParserBase):
 
         A new node is added to the stack, with the
         :py:class:`~imprint.core.tags.ReferenceDescriptor` set as its
-        :py:attr:`~_TagStackNode.config` attribute.
+        :py:attr:`~TagStackNode.config` attribute.
         """
         descriptor = tag_registry.get(name, None)
         attr, descriptor = self.check_attributes(name, attr, descriptor)
@@ -392,7 +396,7 @@ class ReferenceProcessor(_DocxParserBase):
             reference = None
             open_error = True
 
-        tag = _TagStackNode(name, attr, descriptor, config=reference,
+        tag = TagStackNode(name, attr, descriptor, config=reference,
                             open_error=open_error)
         self.tag_stack.push(tag)
 
@@ -432,7 +436,7 @@ class ReferenceProcessor(_DocxParserBase):
         self.log(logging.TRACE, '%s content "%s"', verb, content)
 
 
-class TemplateProcessor(_DocxParserBase):
+class TemplateProcessor(DocxParserBase):
     """
     A parser to handle the entire document structure with the assumption
     that a reference mapping has already been made.
@@ -579,7 +583,7 @@ class TemplateProcessor(_DocxParserBase):
                 # Handle unregistered tags
                 self.log(logging.WARNING, 'Unrecognized tag <%s> '
                          'will be ignored', name)
-                raise _OpenTagError
+                raise OpenTagError
             attr, descriptor = self.check_attributes(name, attr, descriptor)
             start_args = [self.state, name, attr]
             if descriptor.data_config is not None:
@@ -602,16 +606,16 @@ class TemplateProcessor(_DocxParserBase):
                 else:
                     self._insert_alt_text(name, config_name, 'missing '
                                           'data configuration dictionary')
-                    raise _OpenTagError
+                    raise OpenTagError
 
             try:
                 descriptor.start(*start_args)
             except KnownError as e:
                 self._handle_known_error(e, name, config_name)
-                raise _OpenTagError
+                raise OpenTagError
             except OSError as e:
                 self._handle_os_error(e, name, config_name)
-                raise _OpenTagError
+                raise OpenTagError
             except:
                 self.log(logging.ERROR, "Fatal error in start tag for <%s>",
                          name)
@@ -619,12 +623,12 @@ class TemplateProcessor(_DocxParserBase):
                     self._insert_alt_text(name, config_name,
                                           'Error in opening tag processor')
                 raise
-        except _OpenTagError:
+        except OpenTagError:
             open_error = True
         else:
             open_error = False
 
-        tag = _TagStackNode(name, attr, descriptor, config, open_error)
+        tag = TagStackNode(name, attr, descriptor, config, open_error)
         self.tag_stack.push(tag)
 
     def endElement(self, name):

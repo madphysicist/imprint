@@ -38,4 +38,5 @@ of the pages in the :doc:`/tutorials/tutorials` section.
    tag_api
    programs
    logging
+   internal_api
 

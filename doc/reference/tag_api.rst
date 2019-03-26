@@ -25,7 +25,7 @@ XML Tag API
 ===========
 
 The Imprint :ref:`engine <introduction-layers-engine>` comes with a complete set
-of handlers for the tags specified in the :doc:`xml_spec`. However, additional
+of processors for the tags specified in the :doc:`xml_spec`. However, additional
 tags may be necessary for highly customized applications, so an API exists for
 defining and registering new tags. The API is defined in the
 :py:mod:`imprint.core.tags` module. Example usage can be found in the
@@ -100,12 +100,12 @@ XML Attributes
 
 XML attributes are supplied to the :py:meth:`~TagDescriptor.start` and
 :py:meth:`~TagDescriptor.end` methods of a :py:class:`TagDescriptor` as the
-second argument. The inputs are transformed into a vanilla :py:class:`dict`,
-which is used for both methods. The dictionaries are meant to be treated as
-read-only, but this is actually not a requirement, meaning that technically
-:py:meth:`~TagDescriptor.start` can modify what :py:meth:`~TagDescriptor.end`
-sees. The dictionaries will not include any attributes that are not listed in
-the :py:attr:`~TagDescriptor.required` and :py:attr:`~TagDescriptor.optional`
+second argument. The inputs are presented to both methods as a vanilla
+:py:class:`dict`. The dictionary are meant to be treated as read-only, but this
+is not a requirement, meaning that technically :py:meth:`~TagDescriptor.start`
+can modify what :py:meth:`~TagDescriptor.end` sees. The dictionary is filtered
+to exclude any attributes that are not listed in the
+:py:attr:`~TagDescriptor.required` and :py:attr:`~TagDescriptor.optional`
 elements of the :py:class:`TagDescriptor`.
 
 
@@ -283,6 +283,8 @@ See :ref:`logging-tags`.
 The API
 -------
 
+.. automodule:: imprint.core
+
 .. automodule:: imprint.core.tags
 
 The following members are used to construct and register new tags:
@@ -383,7 +385,6 @@ Reference Descriptors
 
 .. autoclass:: SegmentReferenceDescriptor
    :members:
-   :special-members:
    :inherited-members:
    :exclude-members: __weakref__, __init__, prefix
    :show-inheritance:

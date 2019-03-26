@@ -22,9 +22,9 @@
 
 
 """
-Basic :ref:`plugins-handlers` for inserting strings into a document.
-
-All the handlers in this module are compatible with the
+:py:mod:`imprint.handlers.string.strings` contains the basic built-in
+:ref:`plugins-handlers` for inserting strings into a document. All the
+handlers in this module are compatible with the
 :ref:`plugin interface <plugins-strings-signature>` used by the
 :ref:`xml-spec-tags-string` tag.
 """

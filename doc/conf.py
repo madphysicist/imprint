@@ -87,7 +87,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
-exclude_patterns = ['_build', '_src', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', '_src', '_intersphinx', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -188,12 +188,22 @@ texinfo_documents = [
 
 # -- Options for intersphinx extension ---------------------------------------
 
-# Example configuration for intersphinx: refer to the Python standard library.
+# Intersphinx configuration: attempt to download object listings from the
+# official documentations, use a (possibly outdated) local backup if that fails.
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3/', None),
-    'python-docx': ('https://python-docx.readthedocs.io/en/latest/', None),
-    'pandas': ('http://pandas.pydata.org/pandas-docs/stable/', None),
-    'haggis': ('https://haggis.readthedocs.io/en/latest/', None),
+    'docx': (
+        'https://python-docx.readthedocs.io/en/latest/',
+        (None, '_intersphinx/docx.inv')
+    ), 'python': (
+        'https://docs.python.org/3/',
+        (None, '_intersphinx/python.inv')
+    ), 'pandas': (
+        'http://pandas.pydata.org/pandas-docs/stable/',
+        (None, '_intersphinx/pandas.inv')
+    ), 'haggis': (
+        'https://haggis.readthedocs.io/en/latest/',
+        (None, '_intersphinx/haggis.inv')
+    ),
 }
 
 # -- Options for todo extension ----------------------------------------------

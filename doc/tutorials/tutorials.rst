@@ -55,3 +55,25 @@ always a good place to start browsing through all of the available topics.
    styles_tutorial
    plugin_tutorial
    tag_tutorial
+
+
+.. _tutorials-demos:
+
+-----
+Demos
+-----
+
+The tutorials in this documentation rely on a number of small demo projects to
+illustrate the features of Imprint. The projects are available for download as
+zip files so that the reader can follow along in the tutorial and experiment on
+their own. The following is a list of the available demp projects:
+
+- :download:`HelloWorld </demos/HelloWorld.zip>` for :ref:`t_start`
+- :download:`CandleFlame </demos/CandleFlame.zip>` for :ref:`t_basic`
+- :download:`Games </demos/Games.zip>` for :ref:`t_additional_1`
+- :download:`Invoice </demos/Invoice.zip>` for :ref:`t_additional_2`
+- :download:`Snippets </demos/Snippets.zip>` for :ref:`t_styles`
+- . . . for :ref:`t_plugin`
+- . . . for :ref:`t_tag`
+- :download:`PathologicalCases </demos/PathologicalCases.zip>` for testing
+  purposes

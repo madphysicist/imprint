@@ -51,7 +51,12 @@ readers are encouraged to download and extract the entire project before
 delving into the tutorial.
 
 The document created in the project will contain a couple of trivial lists of
-board games just for illustration. It will look something like this:
+board games just for illustration. The baseline version can be created using
+:download:`Games.ipc </demos/Games/Games.ipc>`::
+
+    imprint Games.ipc
+
+The output ``Games.docx`` will look something like this:
 
 .. figure:: /_static/Games\ Output.png
    :name: t_additonal_1-output
@@ -105,8 +110,8 @@ Making Lists
 
 Lists are created by setting the ``list`` attribute of the
 :ref:`xml-spec-tags-par` tags. List items are just regular paragraphs with some
-extra styling added on for the numbering. A sample :ref:`configuration-xml`
-with list items looks like this:
+extra styling added on for bullets or numbering. A sample
+:ref:`configuration-xml` with list items looks like this:
 
 .. literalinclude:: /demos/Games/templates/Games.xml
    :language: xml
@@ -171,8 +176,7 @@ on lines **12**, **14** and **15**:
    :emphasize-lines: 3, 5, 6
 
 Each :ref:`xml-spec-tags-figure-ref` identifies the figure it refers to by its
-``id`` attribute. This is how most :ref:`tag-api-references` are identified by
-their ``id``.
+``id`` attribute. This is how most :ref:`tag-api-references` are identified.
 
 The text reference on line **40** is greated by a
 :ref:`xml-spec-tags-segment-ref` tag, which points to paragraphs. Since
@@ -308,7 +312,7 @@ reference targets. The most common usage is to turn tables or equations into
 figures that can be referenced as "Figure 1.3-1", rather than being treated as
 a table or equation.
 
-Our sample template creates such a :ref:`xml-spec-tags-table` to talk about
+Our sample template creates such a :ref:`xml-spec-tags-table` to describe
 Tic-Tac-Toe:
 
 .. literalinclude:: /demos/Games/templates/Games.xml

@@ -13,7 +13,7 @@
 .. GNU Affero General Public License for more details.
 
 .. You should have received a copy of the GNU Affero General Public License
-.. along with this program.  If not, see <https://www.gnu.org/licenses/>.
+.. along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .. Author: Joseph Fox-Rabinovitz <jfoxrabinovitz at gmail dot com>
 .. Version: 13 Apr 2019: Initial Coding
@@ -25,39 +25,53 @@
 Installation Guide
 ==================
 
-Imprint is available via `pypi`_, so the easiest way to install it is probably
-with ::
+This document explains how to install Imprint.
 
-    pip install imprint
+
+.. _installation-install:
+
+----------------------
+Installing the Package
+----------------------
+
+
+.. _installation-pypi:
+
+PyPI
+====
+
+Imprint is available via `pypi`_, so the recommended way to install it is ::
+
+    pip install imprint[all]
+
+The extra ``[all]`` installs most of the :ref:`dependencies` necessary to
+generate simple images and tables. It can be omitted for a bare-bones
+install.
+
+
+.. _installation-source:
+
+Source
+======
 
 Imprint uses `setuptools`_, so you can install it from source as well. If you
 have a copy of the source distribution, run ::
 
     python setup.py install
 
-from the root directory, with the appropriate privileges.
+from the project root directory, with the appropriate privileges. A source
+distribution can be found on `PyPI`_ as well as directly on `GitHub`_.
 
 You can do the same thing with :program:`pip` if you prefer. Any of the
 following should work, depending on how you obtained your distribution ::
 
-    pip install git+<URL>/imprint.git@master   # For a remote git repository
-    pip install imprint.zip                    # For an archived file
-    pip install imprint/                       # For an unpacked folder or repo
+    pip install git+<URL>/imprint.git@master[all]  # For a remote git repository
+    pip install imprint.zip[all]                   # For an archived file
+    pip install imprint[all]                       # For an unpacked folder or repo
 
 See the page about :doc:`dependencies` for a complete description of additional
 software that may need to be installed. Using :program:`setup.py` or
 :program:`pip` should take care of all the Python dependencies.
-
-
-------
-Extras
-------
-
-To ensure that optional dependencies are included in the install, do ::
-
-    pip install imprint[all]
-
-The ``all`` extra option will include PDF, LaTeX and Pandas in the dependencies.
 
 
 .. _installation-demos:
@@ -69,7 +83,8 @@ Demos
 Imprint is packaged with a set of demo projects intended primarily for the
 :doc:`tutorials/tutorials`. The demos are not normally installed as part of
 Imprint, Instead, they are to be accessed through the source repository or the
-documentation :ref:`installation-documentation`, once that is built.
+documentation :ref:`installation-documentation`, once that is built. See
+:ref:`tutorials-demos` for a complete list.
 
 
 .. _installation-tests:
@@ -90,30 +105,32 @@ will be added in the :py:mod:`~imprint.tests` package.
 Documentation
 -------------
 
-If you intend to build the documentation, you can install the required addtional
-dependencies like Sphinx using one of the appropriate extras ::
+If you intend to build the documentation, you must have `Sphinx`_ installed,
+and optionally the `ReadTheDocs Theme`_ extension for optimal viewing. See the
+:ref:`dependencies spec <dependencies-documentation>` for more details.
 
-    pip install imprint[docs]
-
-or ::
-
-    pip install imprint[docs-rtd]
-
-The documentation can be built from the source distribution by using the
-specially defined command::
+The documentation can be built from the complete source distribution by using
+the specially defined command::
 
     python setup.py build_sphinx
 
-Alternatively (perhaps preferably), it can be built using the provided Makefile:
+Alternatively (perhaps preferably), it can be built using the provided
+Makefile::
 
     cd doc
     make html
 
 Both options work on Windows and Unix-like systems that have :program:`make`
-installed. The Windows version does not require :program:`make`.
+installed. The Windows version does not require :program:`make`. On Linux you
+can also do ::
+
+    make -C doc html
 
 Building the documentation will also make a copy of the
 :ref:`installation-demos`.
+
+The documentation is not present in the `PyPI`_ source distributions, only
+directly from `GitHub`_.
 
 
 .. include:: /link-defs.rst

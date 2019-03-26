@@ -151,14 +151,15 @@ if __name__ == '__main__':
         package_dir={'': 'src'},
         install_requires=[
             'python-docx >= 0.8.5',
-            'haggis[docx] >= 0.1a1.dev1',
+            'haggis[docx] < 0.1a1',
         ],
         extras_require={
-            'all': ['pandas >= 0.20', 'haggis[latex, pdf] >= 0.1a1.dev1'],
-            'latex': ['haggis[latex] >= 0.1a1.dev1'],
-            'pdf': ['haggis[pdf] >= 0.1a1.dev1'],
-            'docs': ['sphinx >= 1.7.1'],
-            'docs-rtd': ['sphinx >= 1.7.1', 'sphinx_rtd_theme >= 0.4.0'],
+            'all': [
+                'haggis[plot, latex, pdf] < 0.1a1',
+                'pandas >= 0.20'
+            ],
+            'latex': ['haggis[latex] < 0.1a1'],
+            'pdf': ['haggis[pdf] < 0.1a1'],
         },
         provides=['imprint'],
         scripts=[

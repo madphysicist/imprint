@@ -22,9 +22,9 @@
 
 
 """
-Basic :ref:`plugins-handlers` for inserting images into a document.
-
-All the handlers in this module are compatible with the
+:py:mod:`imprint.handlers.figure.images` contains basic built-in
+:ref:`plugins-handlers` for inserting images into a document. All the
+handlers in this module are compatible with the
 :ref:`plugin interface <plugins-figures-signature>` used by the
 :ref:`xml-spec-tags-figure` tag.
 """
@@ -58,7 +58,7 @@ def ImageFile(config, kwds, output=None):
     ``'.pdf'`` extension) get special handling to convert them into
     usable images.
 
-    The following :ref:`plugins-data-configuration` key is used:
+    The following :ref:`plugins-data-configuration` keys are used:
 
         file
             The (mandatory) file name containing the image.

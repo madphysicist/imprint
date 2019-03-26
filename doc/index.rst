@@ -9,8 +9,11 @@
 
 .. This program is distributed in the hope that it will be useful,
 .. but WITHOUT ANY WARRANTY; without even the implied warranty of
-.. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 .. GNU Affero General Public License for more details.
+
+.. You should have received a copy of the GNU Affero General Public License
+.. along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .. Author: Joseph Fox-Rabinovitz <jfoxrabinovitz at gmail dot com>
 .. Version: 13 Apr 2019: Initial Coding
@@ -33,6 +36,7 @@ Welcome to Imprint's documentation!
    reference/reference
    dependencies
    restrictions
+   developers
    future_work
 
 
@@ -44,3 +48,5 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 * :doc:`todos`
+
+Project home page: https://github.com/madphysicist/imprint

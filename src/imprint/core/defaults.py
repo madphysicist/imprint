@@ -22,7 +22,8 @@
 
 
 """
-Defines the defaults used by the engine, in the absence of a
+:py:mod:`imprint.code.defaults` defines the defaults used by the engine,
+in the absence of a
 :ref:`user-defaults file <future-work-user-defaults>`.
 
 This is the last fallback for all the default values used to style

@@ -22,22 +22,23 @@
 
 
 """
-Root package of imprint.
+Root package of :py:mod:`imprint`.
 
 This package contains the following sub-packages:
 
-  - core:
+  - :py:mod:`~imprint.core`:
       The code that generates the documents. This includes all XML
       parsers and implementations of the :ref:`tag-api-builtins`.
-  - handlers:
+  - :py:mod:`~imprint.handlers`:
       A package implementing common :ref:`plugins-handlers` for the
       built-in tags that accept them.
-  - tests:
+  - :py:mod:`~imprint.tests`:
       While woefully incomplete, this package contains the beginnings of 
       unit tests for imprint.
 
 The public driver script for the :py:mod:`imprint` package is
-:program:`imprint`.
+:program:`imprint`, implemented in the module
+:py:mod:`imprint.driver`.
 """
 
 

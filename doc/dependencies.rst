@@ -25,6 +25,7 @@
 Dependencies
 ============
 
+
 .. _dependencies-python:
 
 ------
@@ -68,8 +69,6 @@ with sphinx itself.
 The default viewing experience for the documentation is provided by the
 `ReadTheDocs Theme`_, which is, however, optional. If installed, a version
 >= 0.4.0 is recommended\ [#rtd]_.
-
-All dependencies are included in the ``docs`` and ``docs-rtd`` extras.
 
 
 .. _dependencies-plugins:

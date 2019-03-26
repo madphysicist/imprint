@@ -22,14 +22,20 @@
 
 
 """
-Root package for :ref:`plugins-handlers` for inserting tables into a
-document.
+:py:mod:`imprint.handlers.table` is the root package for built-in
+:ref:`plugins-handlers` for inserting tables into a document.
 
 All the handlers in this module are compatible with the
 :ref:`plugin interface <plugins-tables-signature>` used by the
 :ref:`xml-spec-tags-table` tag. This package exposes all the handlers
 defined in its submodules.
+
+Some of the handlers in this package depend on the ``[all]`` or
+``[table]`` extra being :ref:`installed <installation-install>`. An
+alternative way to enable these features is to manually install the
+`pandas`_ library in your environment.
 """
+
 
 from itertools import repeat
 

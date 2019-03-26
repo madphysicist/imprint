@@ -80,8 +80,8 @@ Image Logging
 -------------
 
 Images that are generated for the document can be "logged" by copying them into
-the log directory, or if logging is disabled, into to the document output
-directory. Image logging also applies to strings, LaTeX equations, and
+the log directory, or if conventional logging is disabled, into to the document
+output directory. Image logging also applies to strings, LaTeX equations, and
 sometimes tables (all the common handlers implement it). For common handlers
 that just insert images or table data as-is into a document, this is not much
 of an advantage. However, when a figure handler generates a complex image or

@@ -22,8 +22,8 @@
 
 
 """
-Root package for :ref:`plugins-handlers` for inserting figures into a
-document.
+:py:mod:`imprint.handlers.figure` is the root package for built-in
+:ref:`plugins-handlers` for inserting figures into a document.
 
 All the handlers in this module are compatible with the
 :ref:`plugin interface <plugins-figures-signature>` used by the
