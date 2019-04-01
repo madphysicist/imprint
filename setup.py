@@ -151,15 +151,15 @@ if __name__ == '__main__':
         package_dir={'': 'src'},
         install_requires=[
             'python-docx >= 0.8.5',
-            'haggis[docx] < 0.1a1',
+            'haggis[docx] >= 0.1a1',
         ],
         extras_require={
             'all': [
-                'haggis[plot, latex, pdf] < 0.1a1',
+                'haggis[plot, latex, pdf] >= 0.1a1',
                 'pandas >= 0.20'
             ],
-            'latex': ['haggis[latex] < 0.1a1'],
-            'pdf': ['haggis[pdf] < 0.1a1'],
+            'latex': ['haggis[latex] >= 0.1a1'],
+            'pdf': ['haggis[pdf] >= 0.1a1'],
         },
         provides=['imprint'],
         scripts=[
