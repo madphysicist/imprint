@@ -29,6 +29,13 @@ normally of interest to the user. However, it may be useful for developers and
 authors of more complex plugins to have access to the internals of the engine.
 
 
+.. _internals-toc:
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+
 .. _internals-parsers:
 
 -------
