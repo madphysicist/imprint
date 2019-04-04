@@ -66,7 +66,7 @@ Demos
 The tutorials in this documentation rely on a number of small demo projects to
 illustrate the features of Imprint. The projects are available for download as
 zip files so that the reader can follow along in the tutorial and experiment on
-their own. The following is a list of the available demp projects:
+their own. The following is a list of the available demo projects:
 
 - :download:`HelloWorld </demos/HelloWorld.zip>` for :ref:`t_start`
 - :download:`CandleFlame </demos/CandleFlame.zip>` for :ref:`t_basic`
