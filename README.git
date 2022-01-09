@@ -6,7 +6,7 @@ BUG: bug fix
 DEV: development or experimental feature
 DOC: documentation-only commit
 DATA: added or updated data files (templates, configurations, etc.)
-ENH: enhancement
+ENH: enhancement (new feature)
 MAINT: maintenance commit (refactoring, typos, etc.)
 REV: revert an earlier commit
 STY: style fix (whitespace, PEP8)
