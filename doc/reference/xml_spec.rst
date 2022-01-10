@@ -593,7 +593,7 @@ the heading of the TOC. If omitted, defaults to nothing.
 Extensions
 ----------
 
-Additional tags may be registered through the :doc:`tag_api`. New flags may not
+Additional tags may be registered through the :doc:`tag_api`. New tags may not
 conflict with existing names, but otherwise have no real restrictions.
 
 

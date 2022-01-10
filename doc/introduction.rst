@@ -107,8 +107,8 @@ it supports.
 Concretely, plugins are Python classes (or functions) that implement the exact
 interface laid out by their parent tag (see :doc:`reference/plugin_api`). An
 introduction to writing plugins is provided in the
-:doc:`tutorials/plugin_tutorial`. Live examples can be found throughout any
-Imprint deployment.
+:doc:`tutorials/plugin_tutorial` tutorial. Live examples can be found
+throughout any Imprint deployment.
 
 The input data and plugin behavior is defined by an :ref:`configuration-idc` in
 the :ref:`introduction-layers-configuration`, so the same plugin can be used to
@@ -146,9 +146,11 @@ separate files as well. This option is also configurable through the
 
 .. _introduction-why:
 
--------------------
-Why Was it Written?
--------------------
+---------------
+Historical Note
+---------------
+
+How did imprint come into being?
 
 Around the years 2016-2018, the analysts at the Detector Characterization Lab
 (DCL) at NASA Goddard Space Flight Center (GSFC) working on Euclid project were
@@ -166,17 +168,17 @@ by the fact that the same data was used to generate multiple sets of figures,
 tables and text elements within a given document. And of course the number of
 reports being generated made it difficult to keep track of versions and
 templates. For one thing, it was easy to forget to update one of the figures or
-tables but not the other. For another any typos that were found and corrected
+tables but not the other. For another, any typos that were found and corrected
 in the static text of the document would not always find their back to all the
 existing versions, and therefore possibly not into future ones either.
 
 The reports were being used for two purposes. The long-term purpose would be to
 archive the detector data, so that all the test data would be available for
-in-flight debugging teams. In the short-term the reports were used to
+in-flight debugging teams. In the short-term, the reports were used to
 communicate test results to the the customer, The European Space Agency (ESA).
 With this set of goals, having minor but persistent errors in the documents
 was deemed unacceptable, as was the amount of time being spent by qualified
-analysts in editing Word documents.
+analysts in editing Microsoft Word documents.
 
 A program called RepGen was created to solve most of the issues encountered with
 the generation of such reports. Its primary requirements were to be robust,
@@ -195,9 +197,10 @@ multiple places in a report. All operations were logged to any level desired,
 including the generation of all content, so errors and inconsistencies could be
 found quickly and easily.
 
-Imprint is a philosophical child of RepGen. It does not share any of the old
-code, but it does provide a significantly improved version of the same sort of
-flexibility as its inspiration.
+RepGen went on to become Electronic New Technology Report (eNTR) #1518805444 at
+NASA. Imprint is a philosophical child of RepGen. It does not share any of the
+old code, but it does provide a significantly improved version of the same sort
+of flexibility as its inspiration.
 
 
 .. _introduction-next:

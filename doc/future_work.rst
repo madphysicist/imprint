@@ -30,8 +30,7 @@ proposed or already implemented for Imprint, but are not a part of the main
 baseline. This is not an exhaustive list, and does not contain any of the minor
 bug fixes and enhancements that come naturally with any project of this scope.
 
-Further requests and issues should be raised on the GitHub issues page:
-`issues`_.
+Further requests and issues should be raised on the GitHub `issues`_ page.
 
 
 .. _future-work-xml-root:

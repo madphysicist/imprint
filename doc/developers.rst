@@ -73,9 +73,10 @@ Feel free to suggest and/or implement any feature that you feel is useful. The
 general phiposophy is to keep things modular. General purpose functions should
 be added to the `haggis`_ library rather than to Imprint itself.
 
-The documentation should explain how the project works. :ref:`introduction`,
-provides a high-level explanation of the overall structure. The :ref:`reference`
-secion contains all the references to the individual components.
+The documentation should explain how the project works. :ref:`introduction`
+provides a high-level explanation of the overall structure. The
+:ref:`reference` secion contains all the references to the individual
+components.
 
 
 .. _development-testing:
