@@ -41,7 +41,7 @@ Writing a :py:class:`~imprint.core.tags.TagDescriptor`
    Add the following:
 
    > This tutorial covers the creation of a basic XML tag. It does not delve
-   > into the subject of tags with :ref:`pulgins <t_plugin>`. This advanced
+   > into the subject of tags with :ref:`plugins <t_plugin>`. This advanced
    > topic is covered in the :doc:`content_tutorial`.
 
 

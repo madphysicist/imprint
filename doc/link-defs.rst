@@ -23,7 +23,7 @@
 .. _dvips: https://www.tug.org/texinfohtml/dvips.html
 .. _GhostScript: https://www.ghostscript.com/
 .. _GitHub: https://github.com/madphysicist/imprint
-.. _haggis: https://haggis.readthedocs.io/en/latest
+.. _haggis: https://haggis.readthedocs.io/en/latest/
 .. _ImageMagick: https://www.imagemagick.org/script/index.php
 .. _LaTeX: https://www.latex-project.org/
 .. _lxml: http://lxml.de/
