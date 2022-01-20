@@ -1124,7 +1124,7 @@ class LatexTag(BuiltinTag):
     def end(self, state, name, attr):
         """
         Convert the equation in the text of the current tag into an
-        image using :py:meth:`haggis.latex_util.render_latex`, and
+        image using :py:func:`haggis.latex_util.render_latex`, and
         insert the image into the parent tag.
 
         The parent can be a run or a paragraph. If the requested run

@@ -39,4 +39,3 @@ of the pages in the :doc:`/tutorials/tutorials` section.
    programs
    logging
    internal_api
-

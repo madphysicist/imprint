@@ -40,7 +40,7 @@ List of minor fixups/features:
 - Add a step to normalize the configuration when it is loaded: add missing
   logging keys from the defaults. Add the max caption depth, etc. Defaults
   should not be implemented through function parameters (e.g., the defaults for
-  :py:func:`haggis.logs.configure_logging`). Tag descriptors should not be
+  :py:func:`haggis.logs.configure_logger`). Tag descriptors should not be
   forced to call `state.keywords.get` to determine if images should be dumped,
   for example.
 
@@ -64,3 +64,6 @@ Internal ToDos
 ==============
 
 .. todolist::
+
+
+.. include:: /link-defs.rst
