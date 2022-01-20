@@ -147,8 +147,10 @@ if __name__ == '__main__':
             'imprint.handlers.figure',
             'imprint.handlers.table',
             'imprint.handlers.string',
+            'imprint.tests',
         ],
         package_dir={'': 'src'},
+        package_data={'imprint.tests': ['_resources/*.ipc']},
         install_requires=[
             'python-docx >= 0.8.5',
             'haggis[docx] >= 0.1a1',
@@ -163,9 +165,9 @@ if __name__ == '__main__':
         },
         provides=['imprint'],
         scripts=[
-            'scripts/imprint',
-            'scripts/docx2xml'
+            'scripts/imprint', 'scripts/imprint.bat',
+            'scripts/docx2xml', 'scripts/docx2xml.bat',
         ],
-        data_files = [('', ['LICENSE', 'README.md'])],
+        data_files = [('', ['LICENSE', 'README.md', 'CHANGELOG'])],
         cmdclass=COMMANDS,
     )
