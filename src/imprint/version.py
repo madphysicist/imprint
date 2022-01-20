@@ -40,4 +40,4 @@ back in.
 """
 
 #: The current version
-__version__ = '0.1.0a2rc1'
+__version__ = '0.1.0a2'
