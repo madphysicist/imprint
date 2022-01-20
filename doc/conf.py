@@ -193,15 +193,26 @@ intersphinx_mapping = {
     'docx': (
         'https://python-docx.readthedocs.io/en/latest/',
         (None, '_intersphinx/docx.inv')
-    ), 'python': (
-        'https://docs.python.org/3/',
-        (None, '_intersphinx/python.inv')
-    ), 'pandas': (
-        'http://pandas.pydata.org/pandas-docs/stable/',
-        (None, '_intersphinx/pandas.inv')
-    ), 'haggis': (
+    ),
+    'haggis': (
         'https://haggis.readthedocs.io/en/latest/',
         (None, '_intersphinx/haggis.inv')
+    ),
+    'matplotlib': (
+        'https://matplotlib.org/',
+        (None, '_intersphinx/matplotlib.inv')
+    ),
+    'openpyxl': (
+        'https://openpyxl.readthedocs.io/en/stable/',
+        (None, 'openpyxl.inv')
+    ),
+    'pandas': (
+        'http://pandas.pydata.org/pandas-docs/stable/',
+        (None, '_intersphinx/pandas.inv')
+    ),
+    'python': (
+        'https://docs.python.org/3/',
+        (None, '_intersphinx/python.inv')
     ),
 }
 
